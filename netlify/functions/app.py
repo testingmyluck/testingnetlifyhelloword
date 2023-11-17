@@ -1,3 +1,4 @@
+# functions/app.py
 import os
 from flask import Flask, request, jsonify
 from bs4 import BeautifulSoup
@@ -8,18 +9,9 @@ from flask_cors import CORS
 import random
 
 app = Flask(__name__)
+CORS(app)
 
-# Get the port number from the PORT environment variable, or use a default value (5000)
-port = int(os.environ.get("PORT", 5000))
-
-# Configure CORS to allow requests from multiple websites
-CORS(app, resources={
-    r"/extract_hls": {
-        "origins": ["https://hdxxx-videoz.blogspot.com", "https://www.hotnippy.com"]
-    }
-})
-
-@app.route('/extract_hls', methods=['GET'])
+@app.route('/.netlify/functions/extract_hls', methods=['GET'])
 def extract_hls():
     try:
         video_url = request.args.get('video_url')
