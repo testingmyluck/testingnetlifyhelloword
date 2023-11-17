@@ -70,5 +70,8 @@ def extract_hls():
         else:
             return jsonify({"error": "Failed to retrieve the video page."}), response.status_code
 
+    if __name__ == '__main__':
+    app.run(debug=True)
+
     except Exception as e:
         return jsonify({"error": str(e)}), 500
