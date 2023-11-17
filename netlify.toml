@@ -1,13 +1,8 @@
 [build]
-    publish = "public"
-    command = "echo No build command"
-    node_bundler = "esbuild"
-
-[dev]
-    publish = "public"
-    node_bundler = "esbuild"
+  functions = "functions"
+  command = "python app.py"  # Adjust this line based on your main Python file
 
 [[redirects]]
-    from = "/api/*"
-    to = "/.netlify/functions/:splat"
-    status = 200
+  from = "/api/*"
+  to = "/.netlify/functions/:splat"
+  status = 200
